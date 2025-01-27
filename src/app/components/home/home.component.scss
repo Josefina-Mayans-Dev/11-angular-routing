@@ -1,0 +1,58 @@
+.home{
+    height: 100dvh;
+}
+
+.layout__header {
+    background: linear-gradient(16deg, rgba(34,53,195,0.5097688733696604) 0%, rgba(253,187,45,1) 100%);
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.site-identity {
+    margin: .6em 0;
+    color: white;
+    cursor: pointer;
+  
+    a{
+      display: flex;
+      gap:10px;
+      align-items: center;
+      margin: .6em 0;
+    }
+  } 
+  
+  
+  .navbar li {
+      display: inline-block;
+      margin: 1.4em 1em 1em 1em;
+      color:white;
+      cursor: pointer;
+  
+      :hover{
+          color:#d7d7d7b6;
+      }
+  }
+  
+  navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+  }
+  
+ .hero{
+    height: 70%;
+    color: gold;
+    padding: 100px;
+    font-size: 3rem;
+  }
+
+.footer {
+    color:white;
+    background: linear-gradient(16deg, rgba(34,53,195,0.5097688733696604) 0%, rgba(253,187,45,1) 100%);
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+    height: 15%;
+}

@@ -1,0 +1,17 @@
+<aside class="sidebar">
+    <div class="sidebar__user-profile">
+        <div class="sidebar__avatar" >
+            <img src="avatar-dany.jpg" alt="">
+        </div>
+        @if(username){
+            <h2>{{username}}</h2>
+        }
+        
+    </div>
+    <nav class="site-navigation">
+        <menu class="nav">
+            <li class="nav-item"><a (click)="accounts()" routerLinkActive="active">Accounts</a></li>
+            <li class="nav-item"><a (click)="transactions()" routerLinkActive="active">Transactions</a></li>
+        </menu>
+    </nav>
+</aside>

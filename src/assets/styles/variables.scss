@@ -1,0 +1,28 @@
+@mixin hover-effect {
+    transition: all 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+      color: white
+    }
+  }
+
+  @mixin card-style {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+  
+  @mixin button-style {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }

@@ -1,0 +1,47 @@
+<section class="transaction-list-container" aria-label="Transactions History" tabindex="0">
+    <header>
+        <h2 tabindex="0">Transactions History</h2>
+    </header>
+    <div class="transaction-list__filters">
+        <label for="accountNumber" tabindex="0">Account Number:</label>
+        <input
+          type="text"
+          id="accountNumber"
+          [(ngModel)]="selectedAccountNumber"
+          aria-label="Enter account number to filter transactions"
+           tabindex="0"
+        />
+        <button
+            class="transaction-list__filters-button"
+            (click)="searchByAccountNumber()"
+            aria-label="Search transactions by account number"
+             tabindex="0"
+          >
+            Search
+        </button>
+    </div>
+    @if(transactions.length > 0) {
+        <table class="transaction-list__table" aria-label="List of Transactions">
+           <thead>
+                <tr>
+                    <th scope="col" tabindex="0">Type</th>
+                    <th scope="col" tabindex="0">Amount</th>
+                    <th scope="col" tabindex="0">Fee</th>
+                    <th scope="col" tabindex="0">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (transaction of transactions; track transaction.transactionType) {
+                <tr role="row">
+                    <td role="cell" tabindex="0">{{ transaction.transactionType }}</td>
+                    <td role="cell" tabindex="0">{{ transaction.amount }}</td>
+                    <td role="cell" tabindex="0">{{ transaction.transactionCost }}</td>
+                    <td role="cell" tabindex="0">{{ transaction.date | date:'medium' }}</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+} @else{
+     <p class="transaction-list__error" role="alert" tabindex="0">No available transactions</p>
+}
+</section>

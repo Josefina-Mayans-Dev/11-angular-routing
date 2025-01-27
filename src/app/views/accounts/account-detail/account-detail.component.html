@@ -1,0 +1,81 @@
+@if (account) {
+<div class="dashboard-summary">
+    <article class="dashboard-summary__card" aria-label="Account Owner Information" tabindex="0">
+        <div class="dashboard-summary__card-content">
+            <h3 class="dashboard-summary__card-content-title">
+                <p>{{account.owner}}</p>
+            </h3>
+            <span class="dashboard-summary__card-content-description">
+                Account number: {{account.accountNumber}}
+            </span>
+        </div>
+        <div class="dashboard-summary__image">
+            <img src="avatar-generic.svg" alt="Profile picture of {{account.owner}}" aria-hidden="true" />
+        </div>
+    </article>
+    <article class="dashboard-summary__card" aria-label="Current Balance Information" tabindex="0">
+        <div class="dashboard-summary__card-content">
+            <h3 class="dashboard-summary__card-content-title">Current Balance</h3>
+            <div class="dashboard-summary__card-content-value">
+                <span>${{account.balance}}</span>
+            </div>
+        </div>
+        <div class="dashboard-summary__card-icon">
+            <img src="money-bag.svg" alt="Money bag icon representing the current balance" aria-hidden="true" />
+        </div>
+    </article>
+    <article class="dashboard-summary__card" aria-label="Number of transactions made" tabindex="0">
+        <div class="dashboard-summary__card-content">
+            <h3 class="dashboard-summary__card-content-title">Transactions</h3>
+            <div class="dashboard-summary__card-content-value">
+                <span>{{transactions.length}}</span>
+            </div>
+        </div>
+        <div class="dashboard-summary__card-icon">
+            <img src="credit-card-pay.svg" alt="credit card icon representing the number of transactions"
+                aria-hidden="true" />
+        </div>
+    </article>
+</div>
+<div class="container-with-info">
+    <section class="profile-card" aria-label="Account Details" tabindex="0">
+        <header class="profile-card__header">
+            <div class="profile-card__header-name">
+                <img src="avatar-generic.svg" alt="Profile Picture of {{account.owner}}"
+                    class="profile-card__header-image" aria-hidden="true">
+                <h2 tabindex="0">{{account.owner}}</h2>
+            </div>
+            <div class="profile-card__header-actions">
+                <button class="profile-card__header-actions-transaction-button" (click)="openTransactionForm()"
+                    aria-label="Create a new transaction for account" tabindex="0">
+                    Create Transaction
+                </button>
+            </div>
+        </header>
+        <div class="profile-card__details">
+            <div class="profile-card__details-detail" role="listitem">
+                <span class="profile-card__details-detail-label">Account Number:</span>
+                <span class="profile-card__details-detail-value">{{ account.accountNumber }}</span>
+            </div>
+            <div class="profile-card__details-detail" role="listitem">
+                <span class="profile-card__details-detail-label">Balance:</span>
+                <span class="profile-card__details-detail-value">${{ account.balance }}</span>
+            </div>
+            <div class="profile-card__details-detail" role="listitem">
+                <span class="profile-card__details-detail-label">Status:</span>
+                <span class="profile-card__details-detail-value">{{ account.status }}</span>
+            </div>
+        </div>
+    </section>
+</div>
+<app-transactions-table aria-label="Table of Transactions"></app-transactions-table>
+} @else {
+<article class="profile-card" role="alert" tabindex="0">
+    <p>No se encontraron detalles de la cuenta</p>
+</article>
+}
+
+@if (showTransactionForm) {
+<app-transaction-modal [balance]="balance" [accountNumber]="accountNumber" (close)="closeTransactionForm()"
+    aria-modal="true" aria-label="Transaction Form Modal" tabindex="-1"></app-transaction-modal>
+}

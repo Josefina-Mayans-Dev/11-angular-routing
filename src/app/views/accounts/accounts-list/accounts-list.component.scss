@@ -1,0 +1,46 @@
+.account-list {
+    &-container {
+        padding: 20px;
+        background-color: white;
+        border-radius: 20px;
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+    }
+
+    &__table-container {
+        overflow-x: auto;
+    }
+
+    &__button-details {
+        background: linear-gradient(16deg, rgba(34, 53, 195, 0.5) 0%, rgba(253, 187, 45, 1) 100%);
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background: linear-gradient(16deg, rgba(34, 53, 195, 0.6) 0%, rgba(253, 187, 45, 0.8) 100%);
+        }
+    }
+
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgb(254, 242, 175);
+        }
+    }
+}

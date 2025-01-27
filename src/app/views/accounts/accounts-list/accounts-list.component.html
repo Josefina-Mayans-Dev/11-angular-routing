@@ -1,0 +1,32 @@
+<section class="account-list-container" aria-label="List of Bank Accounts" tabindex="0">
+    <header>
+        <h2 tabindex="0">Bank Accounts List</h2>
+    </header>
+    <div class="account-list__table-container">
+        <table class="account-list__table" aria-label="Bank Accounts">
+            <thead>
+                <tr>
+                    <th scope="col" tabindex="0">Account Number</th>
+                    <th scope="col" tabindex="0">Account Holder</th>
+                    <th scope="col" tabindex="0">Balance</th>
+                    <th scope="col" tabindex="0"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (account of accounts; track account.accountNumber) {
+                <tr role="row">
+                    <td role="cell" tabindex="0">{{ account.accountNumber }}</td>
+                    <td role="cell" tabindex="0">{{ account.owner }}</td>
+                    <td role="cell" tabindex="0">{{ account.balance }}</td>
+                    <td role="cell">
+                        <button class="account-list__button-details" (click)="showDetails(account.accountNumber)"
+                            aria-label="Show details for this account" tabindex="0">
+                            Show Details
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+<section class="transactions" aria-label="Recent Transactions" tabindex="0">
+    <header class="transactions__header">
+        <h2 class="transactions__title" tabindex="0">Recent Transactions</h2>
+    </header>
+    <div class="invoice-list">
+        <div class="invoice-list__table-container">
+            <table class="invoice-list__table" aria-label="Table of Recent Transactions">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (transaction of displayedTransactions; track transaction.transactionId; let i = $index) {
+                  <tr  role="row">
+                    <td role="cell" tabindex="0">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+                    <td role="cell" tabindex="0">{{ transaction.date | date:'medium' }}</td>
+                    <td role="cell" tabindex="0">{{ transaction.transactionType }}</td>
+                    <td role="cell" tabindex="0">{{ transaction.amount }}</td>
+                    <td role="cell" tabindex="0">{{ transaction.transactionCost}}</td>
+                    <td role="cell" tabindex="0">{{(transaction.amount + transaction.transactionCost)}}</td>
+                </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @if(transactions && transactions.length > itemsPerPage) {
+    <nav class="pagination" aria-label="Transactions Table Pagination">
+        <button
+            (click)="previousPage()"
+            [disabled]="currentPage === 1"
+            aria-label="Previous page"
+            tabindex="0"
+        >Previous
+        </button>
+        <span aria-live="polite" tabindex="0">Page {{ currentPage }} of {{ totalPages }}</span>
+        <button
+            (click)="nextPage()"
+            [disabled]="currentPage === totalPages"
+            aria-label="Next page"
+             tabindex="0"
+            >Next
+        </button>
+    </nav>
+}
+</section>

@@ -1,0 +1,38 @@
+.layout {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+    grid:
+        "header header header" auto "leftSide body ." 1fr "footer footer footer" auto / auto 1fr 0%;
+    gap: 8px;
+
+         &-main {
+                 padding: 2rem;
+                 background-color: #f6f7fb;
+                 height: 100%;
+             }
+}
+
+.header {
+    grid-area: header;
+}
+
+.leftSide {
+    grid-area: leftSide;
+}
+
+.body {
+    grid-area: body;
+}
+
+
+.header,
+.leftSide,
+.body {
+    border: 1px ;
+    border-radius: 15px;
+}
+
+
+ 

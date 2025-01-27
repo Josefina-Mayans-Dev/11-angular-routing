@@ -1,0 +1,53 @@
+<div class="auth-container">
+    <div class="auth-form">
+        <h2 class="auth-form__title">Register</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="register()" class="auth-form__form">
+            <div class="auth-form__group">
+                <label for="name" class="auth-form__label">Username</label>
+                <input type="text" id="username" formControlName="username" class="auth-form__input">
+                @if(nameControl?.invalid && (nameControl?.dirty || nameControl?.touched)) {
+                <div class="auth-form__error">
+                    @if (nameControl?.errors?.['required']) {
+                    <div>Username is required.</div>
+                    }
+                </div>
+                }
+            </div>
+            <div class="auth-form__group">
+                <label for="password" class="auth-form__label">Password</label>
+                <input type="password" id="password" formControlName="password" class="auth-form__input">
+                @if(passwordControl?.invalid && (passwordControl?.dirty || passwordControl?.touched)) {
+                <div class="auth-form__error">
+                    @if (passwordControl?.errors?.['required']) {
+                    <div>Password is required.</div>
+                    }
+                </div>
+                }
+            </div>
+            <fieldset class="auth__section" formGroupName="address">
+                Address
+                <label class="auth__section__label">
+                  <span class="auth__text">Street</span>
+                  <input class="auth__section__input" type="text" formControlName="street">
+                </label>
+                <label class="auth__section__label">
+                  <span class="auth__text">Number</span>
+                  <input class="auth__section__input" type="number" name="number" formControlName="number">
+                </label>
+                <label class="auth__section__label">
+                  <span class="auth__text">Zip Code</span>
+                  <input class="auth__section__input" type="number" name="zipCode" formControlName="zipCode">
+                </label>
+              </fieldset>
+            <button type="submit" class="auth-form__button" [disabled]="registerForm.invalid">Register</button>
+        </form>
+        <p class="auth-form__link">
+            Already have an account? <span class="auth-form__link-button" (click)="login()" role="button">Log In</span>
+        </p>
+        @if (errorMessage) {
+            <div class="auth-form__message auth-form__message--error">
+             {{ errorMessage }}
+          </div>
+        }
+    </div>
+  </div>

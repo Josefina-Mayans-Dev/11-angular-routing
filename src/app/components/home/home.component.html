@@ -1,0 +1,24 @@
+<div class="home">
+<header class="layout__header">
+    <div class="site-identity">
+        <a routerLink="/">
+            <img src="heart-dollar.svg" alt="">
+            <h1 class="navbar-brand">BankIT</h1>
+        </a>
+    </div>
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li><a (click)="register()" routerLinkActive="active">Register</a></li>
+            <li><a (click)="login()" routerLinkActive="active">Log In</a></li>
+        </ul>
+    </nav>
+</header>
+<h1 class="hero">Welcome to BankIT!</h1>
+<footer class="footer">
+    <menu>
+        <li>Contact</li>
+        <li>Social Media</li>
+        <p>© {{ currentYear }} Bank App</p>
+    </menu>
+</footer>
+</div>

@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./assets/styles/variables.scss" as variables;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", serif;
+  overflow-x: hidden;
+}
+
+.inter-font {
+  font-family: "Inter", serif;
+
+}
+
+.caveat-font {
+  font-family: "Caveat", serif;
+
+}
+
+a {
+  text-decoration: none;
+  @include variables.hover-effect;
+}
+
+li{
+  list-style: none;
+}
+
+main {
+  margin: 0 auto;
+
+  section {
+    margin-bottom: 4rem;
+  }
+}
