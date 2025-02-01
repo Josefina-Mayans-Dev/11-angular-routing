@@ -3,7 +3,7 @@
         <h2 class="auth-form__title">Register</h2>
         <form [formGroup]="registerForm" (ngSubmit)="register()" class="auth-form__form">
             <div class="auth-form__group">
-                <label for="name" class="auth-form__label">Username</label>
+                <label for="username" class="auth-form__label">Username</label>
                 <input type="text" id="username" formControlName="username" class="auth-form__input">
                 @if(nameControl?.invalid && (nameControl?.dirty || nameControl?.touched)) {
                 <div class="auth-form__error">
@@ -24,6 +24,21 @@
                 </div>
                 }
             </div>
+            <div class="auth-form__group">
+                <label for="roles" class="auth-form__label">Role</label>
+                <select id="roles" formControlName="roles" class="auth-form__input" aria-describedby="role-error">
+                    <option value="" disabled selected>Select role</option>
+                    <option value="USER">User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+                  @if (roleControl?.invalid && (roleControl?.dirty || roleControl?.touched)) {
+                    <div class="auth-form__error" id="role-error">
+                        @if (roleControl?.errors?.['required']) {
+                            <div>Role is required.</div>
+                        }
+                    </div>
+                }
+            </div>
             <fieldset class="auth__section" formGroupName="address">
                 Address
                 <label class="auth__section__label">
@@ -39,7 +54,7 @@
                   <input class="auth__section__input" type="number" name="zipCode" formControlName="zipCode">
                 </label>
               </fieldset>
-            <button type="submit" class="auth-form__button" [disabled]="registerForm.invalid">Register</button>
+            <button type="submit" class="auth-form__button" [disabled]="registerForm.invalid" >Register</button>
         </form>
         <p class="auth-form__link">
             Already have an account? <span class="auth-form__link-button" (click)="login()" role="button">Log In</span>

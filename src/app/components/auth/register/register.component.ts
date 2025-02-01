@@ -31,11 +31,11 @@ export class RegisterComponent implements OnInit{
                   this.router.navigate(['/login']); 
               },
               error: (error) => {
-                  this.errorMessage = 'Error en el registro. Por favor, inténtelo de nuevo.';
+                  this.errorMessage = 'Registry error. Please try again';
               }
           });
       } else {
-          this.errorMessage = 'Por favor, completa el formulario correctamente';
+          this.errorMessage = 'Please complete the form correctly';
       }
   }
 
